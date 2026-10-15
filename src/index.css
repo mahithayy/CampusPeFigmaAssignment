@@ -1323,7 +1323,15 @@ textarea:focus-visible {
   color: var(--color-text-muted);
   font-size: 0.7rem;
 }
+.resume-match-file {
+  overflow-wrap: anywhere;
+  font-weight: 600;
+}
 
+.resume-match-status {
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+}
 .resume-upload-heading {
   display: flex;
   align-items: flex-start;

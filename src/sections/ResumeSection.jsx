@@ -40,7 +40,7 @@ export default function ResumeSection() {
   const fileInputRef = useRef(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [message, setMessage] = useState('');
-
+  const [previewVersion, setPreviewVersion] = useState(0);
   function handleFile(file) {
     if (!file) return;
 
@@ -48,11 +48,11 @@ export default function ResumeSection() {
     const typeIsValid =
       !file.type || ALLOWED_TYPES.includes(file.type);
 
-    if (!extensionIsValid || !typeIsValid) {
-      setSelectedFile(null);
-      setMessage('Please select a PDF, DOC, or DOCX file.');
-      return;
-    }
+  if (!extensionIsValid || !typeIsValid) {
+  setSelectedFile(null);
+  setMessage('Please select a PDF, DOC, or DOCX file.');
+  return;
+}
 
     if (file.size > MAX_FILE_SIZE) {
       setSelectedFile(null);
@@ -61,9 +61,10 @@ export default function ResumeSection() {
     }
 
     setSelectedFile(file);
-    setMessage(
-      'File selected. Upload and AI analysis require a connected service.',
-    );
+setPreviewVersion((version) => version + 1);
+setMessage(
+  `Selected: ${file.name}. This demo does not upload or analyse your resume.`,
+);
   }
 
   function handleDrop(event) {
@@ -108,21 +109,33 @@ export default function ResumeSection() {
           </div>
 
           <div className="resume-visual">
-            <div className="resume-match-card">
-              <div>
-                <span className="resume-match-label">
-                  AI RESUME MATCHING
-                </span>
-                <h3>98% Match Rate</h3>
-              </div>
-              <span className="resume-match-icon" aria-hidden="true">
-                ✦
-              </span>
-              <div className="resume-match-track" aria-hidden="true">
-                <span />
-              </div>
-              <p>AI semantic rank</p>
-            </div>
+            {selectedFile && (
+  <div className="resume-match-card" key={previewVersion}>
+    <div>
+      <span className="resume-match-label">
+        DEMO RESUME MATCHING
+      </span>
+
+      <h3>98% Match Rate</h3>
+    </div>
+
+    <span className="resume-match-icon" aria-hidden="true">
+      ✦
+    </span>
+
+    <div className="resume-match-track" aria-hidden="true">
+      <span />
+    </div>
+
+    <p className="resume-match-file" title={selectedFile.name}>
+      Preview for: {selectedFile.name}
+    </p>
+
+    <p className="resume-match-status">
+      Sample score · Preview #{previewVersion}
+    </p>
+  </div>
+)}
 
             <div className="resume-upload-card">
               <div className="resume-upload-heading">
