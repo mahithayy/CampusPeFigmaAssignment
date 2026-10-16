@@ -1,0 +1,131 @@
+/* Header */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(225, 234, 245, 0.8);
+  backdrop-filter: blur(16px);
+}
+
+.header-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.brand {
+  flex-shrink: 0;
+  color: var(--color-primary);
+  font-size: 1.65rem;
+  font-weight: 800;
+  letter-spacing: -0.07em;
+}
+
+.brand span {
+  color: #7b61ff;
+}
+
+.header-nav,
+.nav-links,
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.header-nav {
+  flex: 1;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.nav-links {
+  gap: clamp(18px, 2.5vw, 36px);
+}
+
+.nav-links a {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 180ms ease;
+}
+
+.nav-links a:hover {
+  color: var(--color-primary);
+}
+
+.header-actions {
+  gap: 12px;
+}
+
+.header-actions .btn {
+  min-height: 40px;
+  padding: 10px 17px;
+  font-size: 0.875rem;
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: white;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  margin: 4px 0;
+  border-radius: 2px;
+  background: var(--color-text);
+}
+
+.menu-toggle:focus-visible {
+  outline: 3px solid rgba(8, 124, 240, 0.55);
+  outline-offset: 3px;
+}
+
+@media (max-width: 850px) {
+  .header-inner {
+    min-height: 68px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-nav {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 22px;
+    padding: 8px 0 20px;
+  }
+
+  .header-nav.is-open {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-links a {
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,104 @@
+/* Support section */
+
+.support-section {
+  padding-top: clamp(36px, 5vw, 64px);
+  padding-bottom: clamp(48px, 7vw, 88px);
+}
+
+.support-panel {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(36px, 6vw, 64px) 24px;
+  border: 1px solid #dcecff;
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      ellipse at 8% 0%,
+      rgba(83, 174, 255, 0.18),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 94% 100%,
+      rgba(156, 132, 255, 0.13),
+      transparent 42%
+    ),
+    linear-gradient(115deg, #f7fbff, #ffffff 55%, #f8faff);
+  box-shadow: 0 14px 44px rgba(31, 91, 150, 0.07);
+}
+
+.support-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.support-icon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  margin: 0 auto 14px;
+  border: 1px solid #d6e8ff;
+  border-radius: 50%;
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 1.25rem;
+  font-weight: 750;
+  box-shadow: 0 5px 16px rgba(8, 124, 240, 0.09);
+}
+
+.support-content h2 {
+  margin-bottom: 10px;
+  color: var(--color-text);
+  font-size: clamp(1.8rem, 3.6vw, 2.5rem);
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+
+.support-content > p {
+  max-width: 500px;
+  margin: 0 auto;
+  color: var(--color-text-muted);
+  font-size: clamp(0.92rem, 1.5vw, 1rem);
+  line-height: 1.75;
+}
+
+.support-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.support-actions .btn {
+  min-width: 168px;
+}
+
+.support-contact-button span,
+.support-schedule-button span {
+  transition: transform 180ms ease;
+}
+
+.support-contact-button:hover span,
+.support-schedule-button:hover span {
+  transform: translate(2px, -2px);
+}
+
+@media (max-width: 480px) {
+  .support-panel {
+    padding: 36px 18px;
+    border-radius: 18px;
+  }
+
+  .support-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .support-actions .btn {
+    width: 100%;
+  }
+}

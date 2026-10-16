@@ -1,44 +1,80 @@
 
 import Button from '../components/Button.jsx';
 
-const collegeSteps = [
+const collegeFeatures = [
   {
     number: '01',
+    eyebrow: 'VERIFIED PROFILE',
     title: 'Build your college profile',
     description:
-      'Showcase your institution, courses, facilities, and placement opportunities.',
+      'Showcase your college, courses, fees, campus, placements and achievements in one structured profile that students and recruiters can discover.',
+    badges: [
+      { label: '♧  NAAC A++ Ready', style: 'green' },
+      { label: '98% Match', style: 'blue' },
+    ],
   },
   {
     number: '02',
+    eyebrow: 'DIRECT ENROLL',
     title: 'Students discover and connect',
     description:
-      'Help prospective students find your college and enquire directly.',
+      'Students searching for colleges can discover your profile, explore your courses and fees, and connect directly with your admission team.',
+    badges: [
+      { label: '▤  Direct Enquiries', style: 'blue' },
+      { label: '●  WHATSAPP / CHAT', style: 'neutral' },
+      { label: 'Avg. response: <15 min', style: 'plain' },
+    ],
   },
   {
     number: '03',
-    title: 'Recruiters discover your college',
+    eyebrow: 'CAMPUS RECRUITING',
+    title: 'Recruiters discover your College',
     description:
-      'Make your institution more visible to recruiters looking for talent.',
+      'Companies hiring fresh talent can discover your college, explore your talent and connect with your placement team.',
+    badges: [
+      { label: '▦  500+ Hiring Partners', style: 'purple' },
+      { label: '⚖  Connect Directly', style: 'indigo' },
+    ],
   },
   {
     number: '04',
+    eyebrow: 'LIVE HUD',
     title: 'Track placements in real time',
     description:
-      'Keep placement activity and outcomes visible in one place.',
+      'Track placement activity and keep students, interviews and offers visible in one central place.',
+    badges: [
+      { label: '●  LIVE PLACEMENTS', style: 'red' },
+      { label: 'Students · Interviews · Offers', style: 'solid-blue' },
+    ],
   },
 ];
 
-function CollegeFeature({ icon, title, description }) {
+function CollegeFeatureCard({ feature }) {
   return (
-    <div className="college-feature">
-      <span className="college-feature-icon" aria-hidden="true">
-        {icon}
-      </span>
-      <div>
-        <h3>{title}</h3>
-        <p>{description}</p>
+    <article className="college-feature-card">
+      <div className="college-feature-content">
+        <div className="college-feature-eyebrow">
+          <span className="college-feature-number">
+            {feature.number}
+          </span>
+          <span>{feature.eyebrow}</span>
+        </div>
+
+        <h3>{feature.title}</h3>
+        <p>{feature.description}</p>
       </div>
-    </div>
+
+      <div className="college-feature-badges">
+        {feature.badges.map((badge) => (
+          <span
+            key={badge.label}
+            className={`college-feature-badge badge-${badge.style}`}
+          >
+            {badge.label}
+          </span>
+        ))}
+      </div>
+    </article>
   );
 }
 
@@ -52,9 +88,7 @@ export default function CollegeSection() {
               02 · FOR COLLEGES
             </span>
 
-            <h2>
-              Get Discovered by Students and Recruiters.
-            </h2>
+            <h2>Get Discovered by Students and Recruiters.</h2>
 
             <p className="college-intro">
               Make your institution easier to discover. Connect
@@ -82,55 +116,13 @@ export default function CollegeSection() {
             </div>
           </div>
 
-          <div className="college-workflow card">
-            <div className="college-workflow-heading">
-              <span className="college-workflow-icon" aria-hidden="true">
-                ✦
-              </span>
-              <div>
-                <span className="college-workflow-eyebrow">
-                  YOUR CAMPUSPE JOURNEY
-                </span>
-                <h3>One platform. More connections.</h3>
-              </div>
-            </div>
-
-            <div className="college-steps">
-              {collegeSteps.map((step) => (
-                <article className="college-step" key={step.number}>
-                  <span className="college-step-number">
-                    {step.number}
-                  </span>
-                  <div>
-                    <h3>{step.title}</h3>
-                    <p>{step.description}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            <div className="college-contact-card">
-              <span className="college-contact-icon" aria-hidden="true">
-                ↗
-              </span>
-              <div>
-                <h3>Connect Directly</h3>
-                <p>WhatsApp / chat · Avg response under 15 min</p>
-              </div>
-              <span className="college-live-dot" aria-hidden="true" />
-            </div>
-
-            <div className="college-placement-card">
-              <div className="college-placement-heading">
-                <span className="college-live-dot" aria-hidden="true" />
-                <span>LIVE PLACEMENTS</span>
-              </div>
-              <div className="college-placement-stats">
-                <span>Students</span>
-                <span>Interviews</span>
-                <span>Offers</span>
-              </div>
-            </div>
+          <div className="college-feature-list">
+            {collegeFeatures.map((feature) => (
+              <CollegeFeatureCard
+                key={feature.number}
+                feature={feature}
+              />
+            ))}
           </div>
         </div>
       </div>

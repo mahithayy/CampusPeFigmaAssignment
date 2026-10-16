@@ -1,0 +1,432 @@
+/* Employer section */
+
+.employer-section {
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 88% 42%,
+      rgba(8, 124, 240, 0.07),
+      transparent 44%
+    ),
+    #fff;
+}
+
+.employer-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 92px);
+}
+
+.employer-copy {
+  min-width: 0;
+}
+
+.employer-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  color: var(--color-primary);
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.employer-eyebrow > span {
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+}
+
+.employer-copy h2 {
+  margin: 0;
+  color: var(--color-text, #15213b);
+  font-size: clamp(2.15rem, 4.2vw, 3.55rem);
+  font-weight: 760;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+}
+
+.employer-copy h2 span {
+  color: var(--color-primary);
+}
+
+.employer-intro {
+  max-width: 480px;
+  margin: 24px 0 28px;
+  color: var(--color-muted, #64748b);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.employer-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.employer-cta > span {
+  transition: transform 180ms ease;
+}
+
+.employer-cta:hover > span {
+  transform: translateX(4px);
+}
+
+.employer-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 30px;
+}
+
+.employer-benefit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #45546b;
+  font-size: 0.82rem;
+  font-weight: 550;
+}
+
+.employer-benefit-check {
+  display: grid;
+  width: 19px;
+  height: 19px;
+  flex: 0 0 19px;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8f4ff;
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
+/* Workflow illustration */
+
+.employer-visual {
+  position: relative;
+  min-width: 0;
+  padding: 24px 16px 30px 10px;
+}
+
+.employer-workflow-card {
+  position: relative;
+  z-index: 1;
+  padding: clamp(22px, 3vw, 34px);
+  border: 1px solid var(--color-border, #e1eaf5);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 24px 70px rgba(31, 71, 125, 0.1);
+}
+
+.employer-workflow-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #edf1f7;
+}
+
+.employer-card-eyebrow {
+  color: var(--color-primary);
+  font-size: 0.67rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+}
+
+.employer-workflow-header h3 {
+  margin: 10px 0 0;
+  color: #15213b;
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.employer-header-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border: 1px solid #dcecff;
+  border-radius: 13px;
+  background: #f0f7ff;
+  color: var(--color-primary);
+  font-size: 1.3rem;
+}
+
+.employer-steps {
+  padding-top: 25px;
+}
+
+.employer-step {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 15px;
+  min-height: 94px;
+}
+
+.employer-step:last-child {
+  min-height: 72px;
+}
+
+.employer-step-marker {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.employer-step-marker > span:first-child {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  flex: 0 0 38px;
+  place-items: center;
+  border: 1px solid #d8eaff;
+  border-radius: 12px;
+  background: #f0f7ff;
+  color: var(--color-primary);
+  font-size: 0.77rem;
+  font-weight: 750;
+}
+
+.employer-step:nth-child(2) .employer-step-marker > span:first-child {
+  background: #e4f1ff;
+}
+
+.employer-step:nth-child(3) .employer-step-marker > span:first-child {
+  background: #d8eaff;
+}
+
+.employer-step:nth-child(4) .employer-step-marker > span:first-child {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+}
+
+.employer-step-connector {
+  width: 1px;
+  height: 48px;
+  background: #d8e6f7;
+}
+
+.employer-step-content {
+  padding: 2px 0 18px;
+}
+
+.employer-step-content h4 {
+  margin: 0 0 6px;
+  color: #1c2a43;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.employer-step-content p {
+  margin: 0;
+  color: #728096;
+  font-size: 0.81rem;
+  line-height: 1.6;
+}
+
+.employer-workflow-footer {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 8px;
+  padding-top: 18px;
+  border-top: 1px solid #edf1f7;
+  color: #64748b;
+  font-size: 0.78rem;
+}
+
+.employer-footer-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px #e8f9ee;
+}
+
+.employer-speed-card,
+.employer-time-card {
+  position: absolute;
+  z-index: 2;
+  border: 1px solid #e4edf8;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 14px 38px rgba(31, 71, 125, 0.12);
+}
+
+.employer-speed-card {
+  top: 2px;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 17px;
+  animation: employer-float 5s ease-in-out infinite;
+}
+
+.employer-speed-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  place-items: center;
+  border-radius: 11px;
+  background: #e9f8ef;
+  color: #159447;
+  font-size: 1.1rem;
+}
+
+.employer-speed-card > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.employer-speed-card strong {
+  color: #172741;
+  font-size: 0.84rem;
+}
+
+.employer-speed-card > div > span {
+  color: #7b8799;
+  font-size: 0.7rem;
+}
+
+.employer-time-card {
+  right: -4px;
+  bottom: 2px;
+  display: flex;
+  min-width: 138px;
+  flex-direction: column;
+  gap: 6px;
+  padding: 15px 18px;
+  animation: employer-float 5s ease-in-out 1s infinite;
+}
+
+.employer-time-card > span:first-child {
+  color: #75839a;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+}
+
+.employer-time-card strong {
+  color: var(--color-primary);
+  font-size: 1.55rem;
+  letter-spacing: -0.04em;
+}
+
+.employer-time-caption {
+  color: #75839a;
+  font-size: 0.68rem;
+}
+
+@keyframes employer-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 1000px) {
+  .employer-layout {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .employer-copy {
+    max-width: 680px;
+  }
+
+  .employer-visual {
+    width: 100%;
+    max-width: 650px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .employer-copy h2 {
+    font-size: clamp(2rem, 9vw, 2.7rem);
+  }
+
+  .employer-benefits {
+    gap: 12px;
+  }
+
+  .employer-visual {
+    padding: 30px 0 40px;
+  }
+
+  .employer-workflow-card {
+    padding: 21px 17px;
+    border-radius: 19px;
+  }
+
+  .employer-speed-card {
+    top: 0;
+    right: -2px;
+    max-width: 210px;
+    padding: 10px 12px;
+  }
+
+  .employer-speed-card strong {
+    font-size: 0.75rem;
+  }
+
+  .employer-speed-card > div > span {
+    font-size: 0.63rem;
+  }
+
+  .employer-time-card {
+    right: -2px;
+    bottom: 0;
+    padding: 11px 14px;
+  }
+
+  .employer-step {
+    grid-template-columns: 35px minmax(0, 1fr);
+    gap: 12px;
+    min-height: 100px;
+  }
+
+  .employer-step-marker > span:first-child {
+    width: 34px;
+    height: 34px;
+    flex-basis: 34px;
+  }
+
+  .employer-step-connector {
+    height: 54px;
+  }
+
+  .employer-step-content h4 {
+    font-size: 0.88rem;
+  }
+
+  .employer-step-content p {
+    font-size: 0.76rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .employer-speed-card,
+  .employer-time-card {
+    animation: none;
+  }
+
+  .employer-cta > span {
+    transition: none;
+  }
+}

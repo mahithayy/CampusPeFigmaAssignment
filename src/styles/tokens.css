@@ -1,0 +1,36 @@
+/* ========================================
+   1. Design tokens
+======================================== */
+
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color: #15213b;
+  background: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-primary: #087cf0;
+  --color-primary-hover: #0667ce;
+  --color-primary-light: #eaf4ff;
+
+  --color-text: #15213b;
+  --color-text-muted: #64748b;
+
+  --color-background: #ffffff;
+  --color-surface: #ffffff;
+  --color-border: #e1eaf5;
+
+  --shadow-card: 0 8px 30px rgba(31, 91, 150, 0.08);
+  --shadow-card-hover: 0 14px 36px rgba(31, 91, 150, 0.14);
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+
+  --container-width: 1200px;
+
+  --section-spacing: clamp(64px, 8vw, 112px);
+}
