@@ -194,13 +194,17 @@ export default function AppShowcaseSection() {
               company scouting for top-tier talent, CampusPe streamlines the
               connection. Your career doesn’t start at graduation—it starts here.
             </p>
-            <Button href="#support" className="app-download-button">
-              Download App Now <span aria-hidden="true">↓</span>
-            </Button>
-            <p className="app-download-note">
-              App-store links can be connected when the official download URLs
-              are available.
-            </p>
+            <div className="app-store-badges" aria-label="App store badges">
+  <img
+    src={appStoreBadge}
+    alt="Download on the App Store"
+  />
+  <img
+    src={playStoreBadge}
+    alt="Get it on Google Play"
+  />
+</div>
+
           </div>
 
           <div className="app-device-stack" aria-label="CampusPe app screens preview">
