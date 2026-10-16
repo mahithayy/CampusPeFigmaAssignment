@@ -1,6 +1,9 @@
 
 import Button from '../components/Button.jsx';
 
+import appStoreBadge from '../assets/logos/DownloadOnAppStore.svg';
+import playStoreBadge from '../assets/logos/Get_it_on_PlayStore.svg';
+
 const screenPreviews = [
   { id: 'student', label: 'Student home', variant: 'student' },
   { id: 'courses', label: 'Explore courses', variant: 'courses' },

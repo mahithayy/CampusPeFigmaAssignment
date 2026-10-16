@@ -2,6 +2,9 @@
 import { useState } from 'react';
 import Button from '../components/Button.jsx';
 
+import iimBLogo from '../assets/logos/IIMB_Logo.svg';
+import marketingGigLogo from '../assets/logos/MarketingGig_Logo.svg';
+
 const filters = [
   'All',
   'Colleges',
@@ -15,6 +18,7 @@ const opportunities = [
   {
     id: 1,
     title: 'IIM Bangalore',
+    logo: iimBLogo,
     category: 'Colleges',
     badge: 'Top College',
     location: 'Bengaluru',
@@ -37,6 +41,7 @@ const opportunities = [
   {
     id: 3,
     title: 'Marketing Gig',
+    logo: marketingGigLogo,
     category: 'Freelance',
     badge: 'Freelance',
     location: 'Remote',
@@ -97,15 +102,22 @@ function OpportunityCard({ opportunity, onViewDetails }) {
   return (
     <article className="opportunity-card">
       <div className="opportunity-card-heading">
-        <div className="opportunity-avatar" aria-hidden="true">
-          {opportunity.title.charAt(0)}
-        </div>
+        {opportunity.logo ? (
+          <img
+            className="opportunity-logo"
+            src={opportunity.logo}
+            alt=""
+            aria-hidden="true"
+          />
+        ) : (
+          <div className="opportunity-avatar" aria-hidden="true">
+            {opportunity.title.charAt(0)}
+          </div>
+        )}
 
         <div className="opportunity-title-group">
           <h4>{opportunity.title}</h4>
-          <span className="opportunity-badge">
-            {opportunity.badge}
-          </span>
+          <span className="opportunity-badge">{opportunity.badge}</span>
         </div>
 
         <Button
@@ -130,8 +142,7 @@ function OpportunityCard({ opportunity, onViewDetails }) {
 
 function OpportunityDashboard() {
   const [activeFilter, setActiveFilter] = useState('All');
-  const [selectedOpportunity, setSelectedOpportunity] =
-    useState(null);
+  const [selectedOpportunity, setSelectedOpportunity] = useState(null);
 
   const filteredOpportunities =
     activeFilter === 'All'
@@ -195,7 +206,7 @@ function OpportunityDashboard() {
 
       <div className="dashboard-footer">
         <span>Curated for you</span>
-        <span>•</span>
+        <span aria-hidden="true">•</span>
         <span>{filteredOpportunities.length} shown</span>
       </div>
 
@@ -223,9 +234,11 @@ function OpportunityDashboard() {
             <span className="opportunity-badge">
               {selectedOpportunity.badge}
             </span>
+
             <h3 id="opportunity-modal-title">
               {selectedOpportunity.title}
             </h3>
+
             <p>{selectedOpportunity.description}</p>
 
             <div className="opportunity-meta">
@@ -236,9 +249,7 @@ function OpportunityDashboard() {
               <strong>{selectedOpportunity.compensation}</strong>
             </div>
 
-            <Button
-              onClick={() => setSelectedOpportunity(null)}
-            >
+            <Button onClick={() => setSelectedOpportunity(null)}>
               Close Details
             </Button>
           </section>

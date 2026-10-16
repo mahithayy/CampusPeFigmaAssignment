@@ -1,13 +1,18 @@
 
 import Button from '../components/Button.jsx';
 
+import collegesIcon from '../assets/icons/Colleges_Icon.svg';
+import studentsIcon from '../assets/icons/Students_Icon.svg';
+import briefcaseIcon from '../assets/icons/BriefCase_Icon.svg';
+import safeAndTrustedIcon from '../assets/icons/SafeAndTrustedIcon.svg';
+
 const audiences = [
   {
     id: 'colleges',
+    icon: collegesIcon,
     status: 'Coming Soon',
     title: 'College',
-    description:
-      'Explore colleges, courses, fees, placements & more.',
+    description: 'Explore colleges, courses, fees, placements & more.',
     benefits: [
       'Search by course, location, fees',
       'Connect directly with colleges',
@@ -18,6 +23,7 @@ const audiences = [
   },
   {
     id: 'opportunities',
+    icon: briefcaseIcon,
     status: 'Available Now',
     title: "I'm Looking for a Job",
     description: "Upload your resume. We'll find jobs that fit you.",
@@ -32,10 +38,10 @@ const audiences = [
   },
   {
     id: 'employers',
+    icon: studentsIcon,
     status: 'Coming Soon',
     title: "I'm Hiring",
-    description:
-      "We'll find candidates — from students to graduates.",
+    description: "We'll find candidates — from students to graduates.",
     benefits: [
       'Connect directly with colleges',
       'Find the right candidates',
@@ -47,10 +53,10 @@ const audiences = [
 ];
 
 const stats = [
-  { value: '800+', label: 'Students' },
-  { value: '130+', label: 'Colleges' },
-  { value: '100+', label: 'Jobs & Internships' },
-  { value: '100%', label: 'Safe & Trusted' },
+  { value: '800+', label: 'Students', icon: studentsIcon },
+  { value: '130+', label: 'Colleges', icon: collegesIcon },
+  { value: '100+', label: 'Jobs & Internships', icon: briefcaseIcon },
+  { value: '100%', label: 'Safe & Trusted', icon: safeAndTrustedIcon },
 ];
 
 function AudienceCard({ audience }) {
@@ -61,15 +67,20 @@ function AudienceCard({ audience }) {
       }`}
     >
       <div className="audience-card-top">
-        <span className="audience-status">
-          {audience.status}
-        </span>
+        <span className="audience-status">{audience.status}</span>
       </div>
 
-      <h3>{audience.title}</h3>
-      <p className="audience-description">
-        {audience.description}
-      </p>
+      <div className="audience-card-title">
+        <img
+          className="audience-card-icon"
+          src={audience.icon}
+          alt=""
+          aria-hidden="true"
+        />
+        <h3>{audience.title}</h3>
+      </div>
+
+      <p className="audience-description">{audience.description}</p>
 
       <ul className="audience-benefits">
         {audience.benefits.map((benefit) => (
@@ -92,11 +103,7 @@ function AudienceCard({ audience }) {
 }
 
 function FloatingNotice({ className, children }) {
-  return (
-    <div className={`floating-notice ${className}`}>
-      {children}
-    </div>
-  );
+  return <div className={`floating-notice ${className}`}>{children}</div>;
 }
 
 export default function HeroSection() {
@@ -115,16 +122,13 @@ export default function HeroSection() {
           </h1>
 
           <p className="hero-subtitle">
-            One platform connecting students, colleges &amp;
-            employers — faster.
+            One platform connecting students, colleges &amp; employers — faster.
           </p>
 
           <a className="hero-search-prompt" href="#opportunities">
             <span aria-hidden="true">⌕</span>
             <span>What are you looking for?</span>
-            <span className="search-arrow" aria-hidden="true">
-              →
-            </span>
+            <span className="search-arrow" aria-hidden="true">→</span>
           </a>
         </div>
 
@@ -156,16 +160,19 @@ export default function HeroSection() {
 
         <div className="audience-grid">
           {audiences.map((audience) => (
-            <AudienceCard
-              key={audience.id}
-              audience={audience}
-            />
+            <AudienceCard key={audience.id} audience={audience} />
           ))}
         </div>
 
         <div className="hero-stats">
           {stats.map((stat) => (
             <div className="hero-stat" key={stat.label}>
+              <img
+                className="hero-stat-icon"
+                src={stat.icon}
+                alt=""
+                aria-hidden="true"
+              />
               <strong>{stat.value}</strong>
               <span>{stat.label}</span>
             </div>

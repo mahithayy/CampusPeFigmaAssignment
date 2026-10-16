@@ -1,4 +1,11 @@
-import Button from './Button.jsx';
+
+import emailIcon from '../assets/icons/emailBlue_Icon.svg';
+import phoneIcon from '../assets/icons/PhoneBlue_Icon.svg';
+import youtubeIcon from '../assets/icons/Youtube_Icon.svg';
+import facebookIcon from '../assets/icons/FaceBook_Icon.svg';
+import twitterIcon from '../assets/icons/Twitter_Icon.svg';
+import instagramIcon from '../assets/icons/Instagram_Icon.svg';
+import linkedInIcon from '../assets/icons/LinkedIn_Icon.svg';
 
 const footerGroups = [
   {
@@ -29,7 +36,10 @@ const footerGroups = [
     title: 'Company',
     links: [
       { label: 'About CampusPe', href: '#home' },
-      { label: 'Blogs', href: 'mailto:contactus@campuspe.com?subject=CampusPe%20Blogs' },
+      {
+        label: 'Blogs',
+        href: 'mailto:contactus@campuspe.com?subject=CampusPe%20Blogs',
+      },
       { label: 'Contact Us', href: 'mailto:contactus@campuspe.com' },
     ],
   },
@@ -52,13 +62,25 @@ const footerGroups = [
   },
 ];
 
+const socialLinks = [
+  { label: 'YouTube', icon: youtubeIcon, href: null },
+  { label: 'Facebook', icon: facebookIcon, href: null },
+  { label: 'Twitter', icon: twitterIcon, href: null },
+  { label: 'Instagram', icon: instagramIcon, href: null },
+  { label: 'LinkedIn', icon: linkedInIcon, href: null },
+];
+
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="container">
         <div className="footer-main">
           <div className="footer-brand">
-            <a className="footer-logo" href="#home" aria-label="CampusPe home">
+            <a
+              className="footer-logo"
+              href="#home"
+              aria-label="CampusPe home"
+            >
               Campus<span>Pe</span>
             </a>
 
@@ -69,9 +91,38 @@ export default function Footer() {
 
             <div className="footer-contact">
               <a href="mailto:contactus@campuspe.com">
-                contactus@campuspe.com
+                <img src={emailIcon} alt="" aria-hidden="true" />
+                <span>contactus@campuspe.com</span>
               </a>
-              <a href="tel:+916362606464">+91 636 2606464</a>
+
+              <a href="tel:+916362606464">
+                <img src={phoneIcon} alt="" aria-hidden="true" />
+                <span>+91 636 2606464</span>
+              </a>
+            </div>
+
+            <div className="footer-socials" aria-label="Social media">
+              {socialLinks.map((social) =>
+                social.href ? (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    aria-label={social.label}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <img src={social.icon} alt="" aria-hidden="true" />
+                  </a>
+                ) : (
+                  <span
+                    key={social.label}
+                    className="footer-social-placeholder"
+                    title={`${social.label} link not configured`}
+                  >
+                    <img src={social.icon} alt={social.label} />
+                  </span>
+                ),
+              )}
             </div>
           </div>
 
